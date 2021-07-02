@@ -1,0 +1,37 @@
+zapytanie 1
+MATCH shortestpath = shortestPath((from:town{name: "Darjeeling" })-[*]-(to:peak{ name:"Sandakphu" }))
+RETURN shortestpath, length(shortestpath)
+
+zapytanie 2
+MATCH shortestpath = shortestPath ((from:town{name: "Darjeeling" })-[*]-(to:peak{ name:"Sandakphu" })) 
+WHERE ALL(shortestpath in relationships(shortestpath) WHERE shortestpath.winter = "true")
+RETURN shortestpath
+
+zapytanie 3
+MATCH (a)-[r *]->(b) where a.name="Darjeeling" and b.name="Sandakphu" return a,b,r,reduce(dist=0, x IN r | dist + x.distance) 
+ORDER BY reduce(dist=0, x IN r | dist + x.distance)
+
+zapytanie 4
+MATCH (f:Flight)-[r:ORIGIN]->(a:Airport) return a, count(*) 
+ORDER BY count(*)	
+
+zapytanie 5
+
+MATCH p = (a:Airport {name:"LAX"})<-[r:ORIGIN|DESTINATION*..5]->(a2:Airport)
+WITH p, REDUCE(price = 0, node IN [n IN NODES(p) WHERE 'Flight' IN LABELS(n)] | price + [(node)<-[:ASSIGN]-(t: Ticket {class: "economy"}) | t.price][0])
+AS totalPrice, a2
+WHERE totalPrice < 3000 AND a2.name <> "LAX" AND TYPE(head(relationships(p))) = 'ORIGIN'
+RETURN p, totalPrice
+ORDER BY totalPrice DESC
+
+zapytanie 9
+MATCH airport=(airportDestination:Airport)<-[minPriceFlight:CHEAPEST_FLIGHT]-(airportOrigin:Airport) WITH minPriceFlight, airportDestination.name + airportOrigin.name as special 
+RETURN  minPriceFlight.airline as flight,  count(DISTINCT special) AS number 
+ORDER BY number DESC
+
+zapytanie 10
+MATCH airport=(airportDestination:Airport)<-[:CHEAPEST_FLIGHT]-(airportOrigin:Airport)<-[:CHEAPEST_FLIGHT]-(airportThird:Airport)  
+WITH airport, reduce(totalPrice=0, rel IN relationships(airport)|totalPrice + rel.price) as cost 
+WHERE airportDestination<>airportThird  
+RETURN airport, cost 
+ORDER BY cost LIMIT 1

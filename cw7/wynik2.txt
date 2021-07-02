@@ -1,0 +1,12 @@
+  
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzKPsBVI8ypz/fvbfrkuCCCUy5bEy6OgE4+DLAgA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23695>; rel="up"
+Date: Fri, 02 Jul 2021 15:07:46 GMT
+ETag: "3L1FE4dcFatMbDI2kN9QYK"
+Content-Type: application/json
+Content-Length: 74
+
+{"firstname":"Pan","lastname":"Powalski","age":"21","number":"1"}

@@ -1,0 +1,21 @@
+zapytanie 1
+curl –XPUT -i -H "Content-Type:application/json" -d '{"firstname": "Pan", "lastname": "Powalski", "age":"21", "number":"1"}'  http://localhost:8098/buckets/s23695/keys/pPowalski
+curl –XPUT -i -H "Content-Type:application/json" -d '{"firstname": "Kan", "lastname": "Kowalski", "age”:”25”, "number”:”2”}'  http://localhost:8098/buckets/s23695/keys/kKowalski
+curl –XPUT -i -H "Content-Type:application/json" -d '{"firstname": "Man", "lastname": "Mowalski", "age”:”55”, "number”:”3”}'  http://localhost:8098/buckets/s23695/keys/mMowalski
+curl –XPUT -i -H "Content-Type:application/json" -d '{"firstname": "Wan", "lastname": "Wowalski", "age”:”30”, "number”:”4”}'  http://localhost:8098/buckets/s23695/keys/wWowalski
+curl –XPUT -i -H "Content-Type:application/json" -d '{"firstname": "Ban", "lastname": "Bowalski", "age”:”35”, "number”:”5”}'  http://localhost:8098/buckets/s23695/keys/bBowalski
+
+zapytanie 2
+curl -i http://localhost:8098/buckets/s23695/keys/pPowalski
+
+zapytanie 3
+curl –XPUT -i -H "Content-Type:application/json" -d '{"firstname": "Kan", "lastname": "Kowalski", "rodzaj”:”student”,"age”:”21”, "number”:”1”}'  http://localhost:8098/buckets/s23695/keys/kKowalski
+
+zapytanie 4
+curl –XPUT -i -H "Content-Type:application/json" -d '{"lastname": "Man", "age”:”25”, "number”:”2”}'  http://localhost:8098/buckets/s21s23695738/keys/mMowalski
+
+zapytanie 5
+curl –XPUT -i -H "Content-Type:application/json" -d '{"firstname": "Ban", "lastname": "Bowalski", "age”:”55”, "number”:”3”}'  http://localhost:8098/buckets/s23695/keys/bBowalski
+
+zapytanie 6
+curl -i -XDELETE http://localhost:8098/buckets/s23695/keys/bBowalski 

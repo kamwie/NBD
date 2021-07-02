@@ -1,0 +1,10 @@
+mongo nbd zapytanie_1.js >> wynik_1.json
+mongo nbd zapytanie_2.js >> wynik_2.json
+mongo nbd zapytanie_3.js >> wynik_3.json
+mongo nbd zapytanie_4.js >> wynik_4.json
+mongo nbd zapytanie_5.js >> wynik_5.json
+mongo nbd zapytanie_6.js >> wynik_6.json
+mongo nbd zapytanie_7.js >> wynik_7.json
+mongo nbd zapytanie_8.js >> wynik_8.json
+mongo nbd zapytanie_9.js >> wynik_9.json
+mongo nbd zapytanie_10.js >> wynik_10.json
